@@ -1,0 +1,8 @@
+jobseeker_email,job_id,status
+jane@example.com,1,Pending
+jane@example.com,4,Rejected
+jane@example.com,2,Rejected
+jane@example.com,job_id,Pending
+jane@example.com,3,Pending
+jane@example.com,6,Pending
+ff@gmail.com,19,Pending

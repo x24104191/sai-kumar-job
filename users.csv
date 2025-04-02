@@ -1,0 +1,5 @@
+username,email,password,role
+john_doe,john@example.com,pass123,Employer
+jane_smith,jane@example.com,pass123,Job Seeker
+test,test@gmail.com,123,Employer
+ff,ff@gmail.com,123,Job Seeker

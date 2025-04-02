@@ -1,0 +1,51 @@
+job_id,title,description,employer_email
+1,Software Engineer,Develop web applications,john@example.com
+2,Data Analyst,Analyze business data,john@example.com
+3,Frontend Developer,Build UI components,jane@example.com
+4,Backend Developer,Develop APIs and databases,sam@example.com
+5,Machine Learning Engineer,Train AI models,alice@example.com
+6,Cybersecurity Analyst,Monitor security threats,bob@example.com
+7,DevOps Engineer,Automate CI/CD pipelines,david@example.com
+8,Cloud Architect,Design cloud solutions,eve@example.com
+9,Full Stack Developer,Work on frontend and backend,tom@example.com
+10,Database Administrator,Manage SQL databases,jack@example.com
+11,System Administrator,Maintain IT infrastructure,nick@example.com
+12,UX Designer,Improve user experience,emma@example.com
+13,Game Developer,Develop gaming applications,chris@example.com
+14,AI Researcher,Conduct AI research,mia@example.com
+15,Software Tester,Perform QA testing,noah@example.com
+16,Mobile App Developer,Develop Android/iOS apps,sophia@example.com
+17,Network Engineer,Manage networking systems,liam@example.com
+18,IT Support Specialist,Provide technical support,olivia@example.com
+19,Embedded Systems Engineer,Develop embedded software,ethan@example.com
+20,Blockchain Developer,Develop blockchain applications,lily@example.com
+21,IoT Engineer,Develop IoT solutions,ben@example.com
+22,Robotics Engineer,Design and build robots,grace@example.com
+23,Product Manager,Oversee software products,jacob@example.com
+24,Business Analyst,Analyze business requirements,ava@example.com
+25,Game Tester,Test video games,logan@example.com
+26,Web Developer,Create and maintain websites,ryan@example.com
+27,Software Architect,Design software architecture,zoe@example.com
+28,AI Ethics Consultant,Ensure AI fairness,hannah@example.com
+29,Python Developer,Develop Python applications,mason@example.com
+30,React Developer,Build React apps,oliver@example.com
+31,Technical Writer,Write software documentation,nora@example.com
+32,SEO Specialist,Optimize websites for search engines,leo@example.com
+33,System Analyst,Analyze IT systems,sadie@example.com
+34,C++ Developer,Develop C++ applications,xavier@example.com
+35,IT Consultant,Advise on IT strategies,dylan@example.com
+36,Java Developer,Develop Java applications,scarlett@example.com
+37,VR Developer,Create virtual reality apps,caleb@example.com
+38,AI Engineer,Develop AI-powered solutions,ella@example.com
+39,IT Project Manager,Manage IT projects,joshua@example.com
+40,ASP.NET Developer,Develop ASP.NET applications,emily@example.com
+41,PHP Developer,Build PHP websites,matthew@example.com
+42,IT Security Engineer,Ensure IT security,claire@example.com
+43,Cloud Security Specialist,Secure cloud environments,owen@example.com
+44,Ruby on Rails Developer,Develop RoR applications,henry@example.com
+45,Flutter Developer,Build Flutter apps,isabella@example.com
+46,Kotlin Developer,Develop Kotlin applications,alex@example.com
+47,Go Developer,Develop Go-based apps,charlotte@example.com
+48,Scala Developer,Develop Scala applications,daniel@example.com
+49,AI Chatbot Developer,Create AI chatbots,victoria@example.com
+50,IT Trainer,Train IT professionals,joseph@example.com

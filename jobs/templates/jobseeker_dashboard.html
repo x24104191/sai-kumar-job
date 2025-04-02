@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* General Styles */
+        body {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .navbar {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+        }
+
+        .logout-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: darkred;
+        }
+
+        /* Job Container */
+        .container {
+            max-width: 800px;
+            margin: 60px auto 50px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .job-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .job-description {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .apply-btn {
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .apply-btn:hover {
+            background-color: #ff6700;
+        }
+
+        .disabled-btn {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
+
+        /* Fixed Job Portal Info Section */
+        .info-panel {
+            position: fixed;
+            right: 20px;
+            top: 100px;
+            width: 280px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-panel h3 {
+            font-size: 1.3rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .info-panel p {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        /* Background Animation */
+        @keyframes moveBg {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        body {
+            background-size: 400% 400%;
+            animation: moveBg 10s infinite alternate linear;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container-fluid d-flex justify-content-between">
+            <h3 class="text-white">Job Portal</h3>
+            <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Job Listings -->
+    <div class="container">
+        <h2>Available Jobs</h2>
+
+        {% for job in jobs %}
+        <div class="job-card">
+            <div class="job-title">{{ job.title }}</div>
+            <p class="job-description">{{ job.description }}</p>
+
+            {% if job.id in applied_jobs %}
+                <button class="apply-btn disabled-btn" disabled>Applied</button>
+            {% else %}
+                <a href="{% url 'apply_job' job.id %}" class="apply-btn">Apply</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Fixed Info Panel -->
+    <div class="info-panel">
+        <h3>Job Tips</h3>
+        <p>✅ Keep your resume updated.</p>
+        <p>✅ Apply for multiple roles.</p>
+        <p>✅ Prepare for common interview questions.</p>
+        <p>✅ Research companies before applying.</p>
+    </div>
+
+</body>
+</html>

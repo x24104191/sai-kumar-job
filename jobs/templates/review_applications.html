@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications | Job Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* Background Animation */
+        body {
+            background: linear-gradient(-45deg, #2c3e50, #4ca1af, #1e3c72);
+            background-size: 400% 400%;
+            animation: moveBg 10s infinite alternate linear;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        @keyframes moveBg {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* Container */
+        .applications-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .application {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .status {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .status-accepted {
+            background: #27ae60;
+        }
+
+        .status-rejected {
+            background: #c0392b;
+        }
+
+        .status-pending {
+            background: #f39c12;
+        }
+
+        .actions a {
+            text-decoration: none;
+            color: white;
+            padding: 5px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .accept {
+            background: #2ecc71;
+        }
+
+        .reject {
+            background: #e74c3c;
+        }
+
+        .accept:hover {
+            background: #27ae60;
+        }
+
+        .reject:hover {
+            background: #c0392b;
+        }
+
+        /* Back to Dashboard Button */
+        .dashboard-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #ff8c00;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .dashboard-btn:hover {
+            background: #ff6700;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="{% url 'dashboard' %}" class="dashboard-btn">← Back to Dashboard</a>
+
+    <div class="applications-container">
+        <h2>Job Applications</h2>
+        {% for app in applications %}
+            <div class="application">
+                <div>
+                    <p><strong>{{ app.email }}</strong></p>
+                    <p class="status {% if app.status == 'Accepted' %}status-accepted{% elif app.status == 'Rejected' %}status-rejected{% else %}status-pending{% endif %}">
+                        {{ app.status }}
+                    </p>
+                </div>
+                <div class="actions">
+                    <a href="{% url 'update_status' app.email job_id 'Accepted' %}" class="accept">Accept</a>
+                    <a href="{% url 'update_status' app.email job_id 'Rejected' %}" class="reject">Reject</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
