@@ -3,12 +3,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing dependencies if any..."
+      - echo "Preparing build environment..."
 
   build:
     commands:
-      - echo "Zipping application for Elastic Beanstalk..."
-      - zip -r app.zip * .[^.]*  # Includes hidden files like .ebextensions or .env if needed
+      - echo "Zipping app contents for Elastic Beanstalk..."
+      - zip -r app.zip * .[^.]* -x "app.zip"  # Avoid recursive zip
 
 artifacts:
   files:
