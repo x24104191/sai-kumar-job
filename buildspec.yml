@@ -2,13 +2,18 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      python: 3.11
     commands:
-      - echo "Install phase - nothing required for now"
+      - echo "Installing pylint..."
+      - pip install pylint
 
   build:
     commands:
-      - echo "Build phase - skipping zip, letting CodeBuild package everything"
+      - echo "Running pylint for code analysis..."
+      - pylint **/*.py > pylint_report.txt || true
 
 artifacts:
   files:
     - '**/*'
+    - pylint_report.txt
