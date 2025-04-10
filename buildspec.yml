@@ -1,6 +1,15 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - echo "Installing dependencies if any..."
+
   build:
     commands:
-      - echo "Hello from CodeBuild!"
+      - echo "Zipping application for Elastic Beanstalk..."
+      - zip -r app.zip * .[^.]*  # Includes hidden files like .ebextensions or .env if needed
+
+artifacts:
+  files:
+    - app.zip
