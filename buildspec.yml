@@ -3,12 +3,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Preparing build environment..."
+      - echo "Installing any required packages..."
 
   build:
     commands:
-      - echo "Zipping app contents for Elastic Beanstalk..."
-      - zip -r app.zip * .[^.]* -x "app.zip"  # Avoid recursive zip
+      - echo "Zipping all root-level files for Elastic Beanstalk..."
+      - zip -r app.zip . -x "app.zip" "*.git*" "*__pycache__*" "*.DS_Store"
 
 artifacts:
   files:
