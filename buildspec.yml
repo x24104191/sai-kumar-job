@@ -3,13 +3,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing any required packages..."
+      - echo "Install phase - nothing required for now"
 
   build:
     commands:
-      - echo "Zipping all root-level files for Elastic Beanstalk..."
-      - zip -r app.zip . -x "app.zip" "*.git*" "*__pycache__*" "*.DS_Store"
+      - echo "Build phase - skipping zip, letting CodeBuild package everything"
 
 artifacts:
   files:
-    - app.zip
+    - '**/*'
