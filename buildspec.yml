@@ -1,5 +1,10 @@
 version: 0.2
 
+env:
+  variables:
+    SONAR_TOKEN: "sqp_edfa77323580bac9069543c007cb16ade1113a5a"  # Your SonarQube token
+    SONAR_HOST_URL: "http://localhost:9000"  # URL for SonarQube server
+
 phases:
   install:
     runtime-versions:
@@ -7,11 +12,23 @@ phases:
     commands:
       - echo "Installing pylint..."
       - pip install pylint
+      - echo "Downloading SonarQube Scanner..."
+      - curl -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+      - unzip sonar-scanner.zip
+      - mv sonar-scanner-*/ sonar-scanner
+      - export PATH=$PATH:$PWD/sonar-scanner/bin
 
   build:
     commands:
       - echo "Running pylint for code analysis..."
       - pylint **/*.py > pylint_report.txt || true
+      - echo "Running SonarQube analysis..."
+      - sonar-scanner \
+          -Dsonar.projectKey=job_portal_analysis \
+          -Dsonar.sources=. \
+          -Dsonar.host.url=$SONAR_HOST_URL \
+          -Dsonar.token=$SONAR_TOKEN \
+          -Dsonar.python.version=3.11
 
 artifacts:
   files:
