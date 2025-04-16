@@ -5,13 +5,17 @@ phases:
     runtime-versions:
       python: 3.11
     commands:
+      - echo "<-- RUNTIME EXECUTION -->"
       - echo "Installing pylint..."
       - pip install pylint
 
   build:
     commands:
+      - echo "pre build stage completed"
       - echo "Running pylint for code analysis..."
+      - echo "PyLint Started"
       - pylint **/*.py > pylint_report.txt || true
+      - echo "pre build stage completed - PyLint Completed!!"
 
 artifacts:
   files:
