@@ -16,6 +16,7 @@ phases:
       - echo "PyLint Started"
       - pylint **/*.py > pylint_report.txt || true
       - echo "pre build stage completed - PyLint Completed!!"
+      - echo "Build stage completed!"
 
 artifacts:
   files:
